@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Charactors\Charactor.cs" />
     <Compile Include="Charactors\Player.cs" />
+    <Compile Include="Charactors\Shot.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

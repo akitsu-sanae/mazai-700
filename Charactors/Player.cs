@@ -31,7 +31,16 @@ namespace mazai_700.Charactors
                 diff.X -= 4;
             if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Right) == asd.KeyState.Hold)
                 diff.X += 4;
-            Position += diff;
+            var pos = Position += diff;
+            if (pos.X < 0)
+                pos.X = 0;
+            if (pos.X > Consts.Window.Width)
+                pos.X = Consts.Window.Width;
+            if (pos.Y < 0)
+                pos.Y = 0;
+            if (pos.Y > Consts.Window.Height)
+                pos.Y = Consts.Window.Height;
+            Position = pos;
             base.OnUpdate();
         }
     }

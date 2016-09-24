@@ -11,7 +11,7 @@ namespace mazai_700
         static public class Window
         {
             public const int Width = 640;
-            public const int Height = 480;
+            public const int Height = 400;
             static public asd.Vector2DI Size { get; } = new asd.Vector2DI(Width, Height);
         }
         static public readonly asd.Vector2DF FontSize = new asd.Vector2DF(8, 8);

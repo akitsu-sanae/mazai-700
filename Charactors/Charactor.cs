@@ -39,8 +39,19 @@ namespace mazai_700.Charactors
             public void Update()
             {
                 var pos = new asd.Vector2DF(
-                    (int)(Parent.Position.X / Consts.CharSize.X) * Consts.CharSize.X,
-                    (int)(Parent.Position.Y / Consts.CharSize.Y) * Consts.CharSize.Y);
+                    (int)(Parent.Position.X / Consts.CharSize.X / 2) * Consts.CharSize.X * 2,
+                    (int)(Parent.Position.Y / Consts.CharSize.Y) / 2 * Consts.CharSize.Y * 2);
+
+                var size = new asd.Vector2DI();
+                foreach (var chara in Charas)
+                {
+                    size.X = Math.Max(size.X, chara.Key.Item1);
+                    size.Y = Math.Max(size.Y, chara.Key.Item2);
+                }
+                pos -= new asd.Vector2DF(
+                    Consts.CharSize.X * size.X,
+                    Consts.CharSize.Y * size.Y) / 2;
+
                 foreach(var c in Charas)
                 {
                     c.Value.Position = new asd.Vector2DF(

@@ -1,6 +1,6 @@
 # mazai-700
 
-Shooting Game made with C# and [Altseed](altseed.github.io)
+Shooting Game made with C# and [Altseed](http://altseed.github.io)
 
 # Copyright
 Copyright (C) 2016 akitsu sanae.  

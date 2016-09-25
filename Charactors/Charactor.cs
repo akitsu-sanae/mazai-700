@@ -38,10 +38,10 @@ namespace mazai_700.Charactors
             }
             public Graph(asd.Color color, int[,] lines)
             {
-                for (int y = 0; y < lines.GetLength(1); y++)
+                for (int y = 0; y < lines.GetLength(0); y++)
                 {
-                    for (int x = 0; x < lines.GetLength(0); x++)
-                        AddChip(x, y, color, lines[x, y]);
+                    for (int x = 0; x < lines.GetLength(1); x++)
+                        AddChip(x, y, color, lines[y, x]);
                 }
             }
             public void Update()

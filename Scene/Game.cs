@@ -22,6 +22,10 @@ namespace mazai_700.Scene
                 gameLayer.AddObject(new Charactors.Shot(player.Position + new asd.Vector2DF(-24, 0)));
             }
 
+            if (asd.Engine.Keyboard.GetKeyState(asd.Keys.X) == asd.KeyState.Push)
+            {
+                gameLayer.AddObject(new Charactors.Enemy.Enemy(new asd.Vector2DF(100, 100)));
+            }
 
         }
 

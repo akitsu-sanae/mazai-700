@@ -36,6 +36,14 @@ namespace mazai_700.Charactors
                         AddChip(x, y, color, line[x]);
                 }
             }
+            public Graph(asd.Color color, int[,] lines)
+            {
+                for (int y = 0; y < lines.GetLength(1); y++)
+                {
+                    for (int x = 0; x < lines.GetLength(0); x++)
+                        AddChip(x, y, color, lines[x, y]);
+                }
+            }
             public void Update()
             {
                 var pos = new asd.Vector2DF(
@@ -80,7 +88,7 @@ namespace mazai_700.Charactors
             }
         }
 
-        private enum Char :int
+        public enum Char :int
         {
             Triangle1 = '~' + 2,
             Triangle2,
@@ -95,6 +103,9 @@ namespace mazai_700.Charactors
             BlockUp1,
             BlockUp2,
             BlockUp3,
+            BlockDown1,
+            BlockDown2,
+            BlockDown3,
             Triangle3,
             Triangle4,
             BigFrameLeftTop,

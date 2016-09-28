@@ -47,8 +47,8 @@ namespace mazai_700.Charactors
             public void Update()
             {
                 var pos = new asd.Vector2DF(
-                    (int)(Parent.Position.X / Consts.CharSize.X / 2) * Consts.CharSize.X * 2,
-                    (int)(Parent.Position.Y / Consts.CharSize.Y) / 2 * Consts.CharSize.Y * 2);
+                    (int)(Parent.Position.X / Consts.CharSize.X ) * Consts.CharSize.X,
+                    (int)(Parent.Position.Y / Consts.CharSize.Y)  * Consts.CharSize.Y);
 
                 var size = new asd.Vector2DI();
                 foreach (var chara in Charas)

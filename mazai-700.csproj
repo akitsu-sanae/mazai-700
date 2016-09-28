@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Charactors\Bullet\Bullet.cs" />
     <Compile Include="Charactors\Charactor.cs" />
     <Compile Include="Charactors\Enemy\Enemy.cs" />
     <Compile Include="Charactors\Player.cs" />

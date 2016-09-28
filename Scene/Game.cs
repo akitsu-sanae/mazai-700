@@ -24,13 +24,14 @@ namespace mazai_700.Scene
 
             if (asd.Engine.Keyboard.GetKeyState(asd.Keys.X) == asd.KeyState.Push)
             {
-                gameLayer.AddObject(new Charactors.Enemy.Enemy(new asd.Vector2DF(100, 100)));
+                gameLayer.AddObject(new Charactors.Enemy.Enemy(new asd.Vector2DF(100, 100), bulletCompany));
             }
 
         }
 
         asd.Layer2D gameLayer = new asd.Layer2D();
         Charactors.Player player = new Charactors.Player();
+        List<Charactors.Bullet.Bullet> bulletCompany = new List<Charactors.Bullet.Bullet>();
 
     }
 }

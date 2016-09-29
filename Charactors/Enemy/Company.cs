@@ -12,6 +12,8 @@ namespace mazai_700.Charactors.Enemy
         {
             this.layer = layer;
             this.bulletCompany = bulletCompany;
+
+            enemyData = new System.Drawing.Bitmap("Resource/enemy.bmp");
         }
 
         public void Add(Enemy enemy)
@@ -22,13 +24,24 @@ namespace mazai_700.Charactors.Enemy
 
         public void Update()
         {
-            if (asd.Engine.Keyboard.GetKeyState(asd.Keys.X) == asd.KeyState.Push)
+            if (counter % 32 == 0 && counter/32 < enemyData.Height)
             {
-                Add(new Charactors.Enemy.Enemy(new asd.Vector2DF(100, 100), bulletCompany));
+                for (int x = 0; x < enemyData.Width; x++)
+                {
+                    if (enemyData.GetPixel(x, counter / 32).R == 255)
+                    {
+                        Add(new Enemy(new asd.Vector2DF(
+    Consts.Window.Width * x / enemyData.Width,
+    0), bulletCompany));
+                    }
+                }
             }
+            counter++;
         }
         private asd.Layer2D layer;
         private List<Charactors.Bullet.Bullet> bulletCompany;
         private List<Enemy> enemies = new List<Enemy>();
+        private System.Drawing.Bitmap enemyData;
+        int counter = 0;
     }
 }

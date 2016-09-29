@@ -10,6 +10,8 @@ namespace mazai_700.Scene
     {
         public Game()
         {
+            enemyCompany = new Charactors.Enemy.Company(gameLayer, bulletCompany);
+
             gameLayer.AddObject(player);
             AddLayer(gameLayer);
         }
@@ -21,16 +23,12 @@ namespace mazai_700.Scene
                 gameLayer.AddObject(new Charactors.Shot(player.Position + new asd.Vector2DF(24, 0)));
                 gameLayer.AddObject(new Charactors.Shot(player.Position + new asd.Vector2DF(-24, 0)));
             }
-
-            if (asd.Engine.Keyboard.GetKeyState(asd.Keys.X) == asd.KeyState.Push)
-            {
-                gameLayer.AddObject(new Charactors.Enemy.Enemy(new asd.Vector2DF(100, 100), bulletCompany));
-            }
-
+            enemyCompany.Update();
         }
 
         asd.Layer2D gameLayer = new asd.Layer2D();
         Charactors.Player player = new Charactors.Player();
+        Charactors.Enemy.Company enemyCompany;
         List<Charactors.Bullet.Bullet> bulletCompany = new List<Charactors.Bullet.Bullet>();
 
     }

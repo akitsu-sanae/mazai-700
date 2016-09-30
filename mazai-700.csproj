@@ -55,6 +55,8 @@
     <Compile Include="Charactors\Charactor.cs" />
     <Compile Include="Charactors\Enemy\Company.cs" />
     <Compile Include="Charactors\Enemy\Enemy.cs" />
+    <Compile Include="Charactors\Enemy\Mosquit.cs" />
+    <Compile Include="Charactors\Enemy\RedBird.cs" />
     <Compile Include="Charactors\Player.cs" />
     <Compile Include="Charactors\Shot.cs" />
     <Compile Include="Consts.cs" />

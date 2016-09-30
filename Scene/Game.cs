@@ -17,7 +17,7 @@ namespace mazai_700.Scene
     {
         public Game()
         {
-            enemyCompany = new Charactors.Enemy.Company(gameLayer, bulletCompany);
+            enemyCompany = new Charactors.Enemy.Company(gameLayer, bulletCompany, player);
 
             gameLayer.AddObject(player);
             AddLayer(gameLayer);

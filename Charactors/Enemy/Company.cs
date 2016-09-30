@@ -15,10 +15,11 @@ namespace mazai_700.Charactors.Enemy
 {
     class Company
     {
-        public Company(asd.Layer2D layer, List<Charactors.Bullet.Bullet> bulletCompany)
+        public Company(asd.Layer2D layer, List<Charactors.Bullet.Bullet> bulletCompany, Player player)
         {
             this.layer = layer;
             this.bulletCompany = bulletCompany;
+            this.player = player;
 
             enemyData = new System.Drawing.Bitmap("Resource/enemy.bmp");
         }
@@ -47,6 +48,7 @@ namespace mazai_700.Charactors.Enemy
         }
         private asd.Layer2D layer;
         private List<Charactors.Bullet.Bullet> bulletCompany;
+        private Player player;
         private List<Enemy> enemies = new List<Enemy>();
         private System.Drawing.Bitmap enemyData;
         int counter = 0;

@@ -19,33 +19,16 @@ namespace mazai_700.Charactors.Enemy
         {
             Position = pos;
             this.bulletCompany = bulletCompany;
-            AddGraph(new Graph(new asd.Color(255, 0, 0), 
-                " + ",
-                "^T^"));
-            AddGraph(new Graph(new asd.Color(50, 0, 0),
-                 "< >",
-                 "   "));
-
-            base.OnUpdate();
         }
 
         protected override void OnUpdate()
         {
-            counter = (counter + 1) % 30;
-            if (counter == 0)
-            {
-                var bullet = new Bullet.Bullet(Position);
-                this.Layer.AddObject(bullet);
-                bulletCompany.Add(bullet);
-            }
             base.OnUpdate();
-            Position += new asd.Vector2DF(0, 1);
             if (Position.X < -32 || Consts.Window.Width < Position.X + 32 ||
                 Position.Y < -32 || Consts.Window.Height < Position.Y + 32)
                 Dispose();
         }
 
-        private List<Bullet.Bullet> bulletCompany;
-        int counter = 0;
+        protected List<Bullet.Bullet> bulletCompany;
     }
 }

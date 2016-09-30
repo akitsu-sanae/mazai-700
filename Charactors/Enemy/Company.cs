@@ -37,7 +37,7 @@ namespace mazai_700.Charactors.Enemy
                 {
                     if (enemyData.GetPixel(x, counter / 32).R == 255)
                     {
-                        Add(new Enemy(new asd.Vector2DF(
+                        Add(new RedBird(new asd.Vector2DF(
     Consts.Window.Width * x / enemyData.Width,
     0), bulletCompany));
                     }

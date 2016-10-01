@@ -21,11 +21,12 @@ namespace mazai_700.Scene
 
             var title = new Charactors.Charactor();
             title.Position = new asd.Vector2DF(320, 180);
-            title.AddGraph(new Charactors.Charactor.Graph(
+            titleGraph = new Charactors.Charactor.Graph(
                 new asd.Color(255, 255, 255),
                 "#\\ /#    ####/    ####/ #### ####",
                 "# V #      /         #  #  # #  #",
-                "#   # A  /#### AI   #   #### ####"));
+                "#   # A  /#### AI   #   #### ####");
+            title.AddGraph(titleGraph);
             layer.AddObject(title);
 
             var label = new Charactors.Charactor();
@@ -40,8 +41,14 @@ namespace mazai_700.Scene
 
         protected override void OnUpdated()
         {
+            counter += 0.3;
+            titleGraph.SetColor(new asd.Color((byte)(255/counter), (byte)(255/counter), (byte)(255 - 255/counter)));
+
             if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Z) == asd.KeyState.Push)
                 asd.Engine.ChangeScene(new Scene.Game());
         }
+
+        private double counter = 1;
+        Charactors.Charactor.Graph titleGraph;
     }
 }

@@ -75,6 +75,12 @@ namespace mazai_700.Charactors
                         );
                 }
             }
+            public void SetColor(asd.Color color)
+            {
+                foreach (var c in Charas)
+                    c.Value.Color = color;
+            }
+
             public Dictionary<Tuple<int, int>, asd.Chip2D> Charas { get; set; } = new Dictionary<Tuple<int, int>, asd.Chip2D>();
             public Charactor Parent { get; set; }
 

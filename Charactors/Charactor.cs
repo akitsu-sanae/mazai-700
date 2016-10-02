@@ -51,6 +51,23 @@ namespace mazai_700.Charactors
                         AddChip(x, y, color, lines[y, x]);
                 }
             }
+            public Graph(Graph graph)
+            {
+                foreach (var e in graph.Charas)
+                {
+                    var chip = new asd.Chip2D();
+                    chip.Texture = Resource.Font;
+                    chip.Scale = new asd.Vector2DF(
+                        Consts.CharSize.X / Consts.FontSize.X,
+                        Consts.CharSize.Y / Consts.FontSize.Y);
+                    chip.Color = e.Value.Color;
+                    chip.Position = new asd.Vector2DF(e.Key.Item1 * Consts.CharSize.X, e.Key.Item2 * Consts.CharSize.Y);
+                    chip.Src = e.Value.Src;
+                    Charas.Add(new Tuple<int, int>(e.Key.Item1, e.Key.Item2), chip);
+                }
+                this.Position = graph.Position;
+                this.Parent = graph.Parent;
+            }
             public void Update()
             {
                 var pos = new asd.Vector2DF(

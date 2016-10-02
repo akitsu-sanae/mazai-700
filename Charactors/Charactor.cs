@@ -66,6 +66,7 @@ namespace mazai_700.Charactors
                 pos -= new asd.Vector2DF(
                     Consts.CharSize.X * size.X,
                     Consts.CharSize.Y * size.Y) / 2;
+                pos += Position;
 
                 foreach(var c in Charas)
                 {
@@ -82,6 +83,7 @@ namespace mazai_700.Charactors
             }
 
             public Dictionary<Tuple<int, int>, asd.Chip2D> Charas { get; set; } = new Dictionary<Tuple<int, int>, asd.Chip2D>();
+            public asd.Vector2DF Position { get; set; } = new asd.Vector2DF();
             public Charactor Parent { get; set; }
 
             private void AddChip(int x, int y, asd.Color color, int c)

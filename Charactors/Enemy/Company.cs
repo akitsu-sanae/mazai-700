@@ -15,10 +15,15 @@ namespace mazai_700.Charactors.Enemy
 {
     class Company
     {
-        public Company(asd.Layer2D layer, List<Charactors.Bullet.Bullet> bulletCompany, Player player)
+        public Company(
+            asd.Layer2D layer,
+            List<Bullet.Bullet> bulletCompany,
+            List<Shot> shotCompany,
+            Player player)
         {
             this.layer = layer;
             this.bulletCompany = bulletCompany;
+            this.shotCompany = shotCompany;
             this.player = player;
 
             enemyData = new System.Drawing.Bitmap("Resource/enemy.bmp");
@@ -39,17 +44,37 @@ namespace mazai_700.Charactors.Enemy
                     if (enemyData.GetPixel(x, counter / 32).R == 255)
                     {
                         Add(new RedBird(new asd.Vector2DF(
-    Consts.Window.Width * x / enemyData.Width,
-    0), bulletCompany));
+                            Consts.Window.Width * x / enemyData.Width,
+                            0), bulletCompany));
                     }
                 }
             }
             counter++;
+
+            foreach (var shot in shotCompany)
+            {
+                foreach (var enemy in enemies)
+                {
+                    if (enemy == null || shot == null)
+                        continue;
+                    if ((shot.Position - enemy.Position).Length < 32)
+                    {
+                        enemy.Hp--;
+                        shot.Dispose();
+                    }
+                    if (enemy.Hp <= 0)
+                        enemy.Dispose();
+                }
+            }
+            enemies.RemoveAll(e => !e.IsAlive);
+            shotCompany.RemoveAll(s => !s.IsAlive);
         }
+
         private asd.Layer2D layer;
-        private List<Charactors.Bullet.Bullet> bulletCompany;
+        private List<Bullet.Bullet> bulletCompany;
+        private List<Shot> shotCompany;
+        private List<Enemy> enemies { get; set; } = new List<Enemy>();
         private Player player;
-        private List<Enemy> enemies = new List<Enemy>();
         private System.Drawing.Bitmap enemyData;
         int counter = 0;
     }

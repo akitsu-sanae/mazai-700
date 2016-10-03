@@ -27,8 +27,12 @@ namespace mazai_700.Charactors.Enemy
             if (Position.X < -32 || Consts.Window.Width < Position.X + 32 ||
                 Position.Y < -32 || Consts.Window.Height < Position.Y + 32)
                 Dispose();
+
+            if (Hp <= 0)
+                Dispose();
         }
 
+        public virtual int Hp { get; set; } = 4;
         protected List<Bullet.Bullet> bulletCompany;
     }
 }

@@ -22,46 +22,46 @@ namespace mazai_700.Scene
             var title = new Charactors.Charactor();
             title.Position = new asd.Vector2DF(160, 100);
 
-            var m = new Charactors.Charactor.Graph(
-                new asd.Color(255, 255, 255), new int[,]{
-                    { (int)C.Triangle2, ' ', ' ', (int)C.Triangle1 },
-                    { (int)C.Block    , (int)C.Triangle3, (int)C.Triangle4, (int)C.Block},
-                    { (int)C.Block, ' ', ' ', (int)C.Block },
-                    { (int)C.Block, ' ', ' ', (int)C.Block }
-                });
-            title.AddGraph(m);
-            var a = new Charactors.Charactor.Graph(
-                new asd.Color(255, 255, 255), new int[,] {
-                    { (int)C.Triangle1, (int)C.Block, (int)C.Block },
-                    { (int)C.Block, ' ', (int)C.Block },
-                    { (int)C.Block, (int)C.Triangle3, (int)C.Block },
-                    { (int)C.Block, ' ', (int)C.Block }
-                });
-            a.Position = new asd.Vector2DF(5 * Consts.CharSize.X, 0);
-            title.AddGraph(a);
-            var z = new Charactors.Charactor.Graph(
-                new asd.Color(255, 255, 255), new int[,] {
-                    { (int)C.Triangle1, (int)C.Block, (int)C.Block, (int)C.Triangle4},
-                    { ' ', ' ', (int)C.Triangle1, ' ' },
-                    { ' ', (int)C.Triangle4, ' ', ' ' },
-                    { (int)C.Triangle1, (int)C.Block, (int)C.Block, (int)C.Triangle2 }
-                });
-            z.Position = new asd.Vector2DF(9 * Consts.CharSize.X, 0);
-            title.AddGraph(z);
-
-            var a_ = new Charactors.Charactor.Graph(a);
-            a_.Position = new asd.Vector2DF(13 * Consts.CharSize.X, 0);
-            title.AddGraph(a_);
-
-            var i = new Charactors.Charactor.Graph(
-                new asd.Color(255, 255, 255), new int[,] {
-                    { (int)C.Triangle1, (int)C.Block, (int)C.Block},
-                    { ' ', (int)C.Block, ' '},
-                    { ' ', (int)C.Block, ' ' },
-                    { (int)C.Block, (int)C.Block, (int)C.Block }
-                });
-            i.Position = new asd.Vector2DF(17 * Consts.CharSize.X, 0);
-            title.AddGraph(i);
+            var line0 = new Charactors.Charactor.Graph(
+                new asd.Color(255, 255, 255), new int[,] { {
+                        (int)C.Triangle2, ' ', ' ', (int)C.Triangle1, ' ',
+                        (int)C.Triangle1, (int)C.Block, (int)C.Block, ' ',
+                        (int)C.Triangle1, (int)C.Block, (int)C.Block, (int)C.Triangle4, ' ',
+                        (int)C.Triangle1, (int)C.Block, (int)C.Block, ' ',
+                        (int)C.Triangle1, (int)C.Block, (int)C.Block
+                }});
+            line0.Position = new asd.Vector2DF(100, 0);
+            title.AddGraph(line0);
+            var line1 = new Charactors.Charactor.Graph(
+                new asd.Color(120, 120, 120), new int[,] {{
+                        (int)C.Block, (int)C.Triangle3, (int)C.Triangle4, (int)C.Block, ' ',
+                        (int)C.Block, ' ', (int)C.Block, ' ',
+                        ' ', ' ', (int)C.Triangle1, ' ', ' ',
+                        (int)C.Block, ' ', (int)C.Block, ' ',
+                        ' ', (int)C.Block, ' '
+                    }});
+            line1.Position = new asd.Vector2DF(100, Consts.CharSize.Y);
+            title.AddGraph(line1);
+            var line2 = new Charactors.Charactor.Graph(
+                new asd.Color(255, 255, 255), new int[,] {{ ' ',
+                        (int)C.Block, ' ', ' ', (int)C.Block, ' ',
+                        (int)C.Block, (int)C.Triangle3, (int)C.Block, ' ',
+                        ' ', (int)C.Triangle4, ' ', ' ', ' ',
+                        (int)C.Block, (int)C.Triangle3, (int)C.Block, ' ',
+                        ' ', (int)C.Block, ' ', ' '
+                    }});
+            line2.Position = new asd.Vector2DF(100, 2 * Consts.CharSize.Y);
+            title.AddGraph(line2);
+            var line3 = new Charactors.Charactor.Graph(
+                new asd.Color(255, 255, 255), new int[,] { {
+                        (int)C.Block, ' ', ' ', (int)C.Block, ' ',
+                        (int)C.Block, ' ', (int)C.Block, ' ',
+                        (int)C.Triangle1, (int)C.Block, (int)C.Block, (int)C.Triangle2, ' ',
+                        (int)C.Block, ' ', (int)C.Block, ' ',
+                        (int)C.Block, (int)C.Block, (int)C.Block
+                    }});
+            line3.Position = new asd.Vector2DF(100, 3 * Consts.CharSize.Y);
+            title.AddGraph(line3);
 
             var seven = new Charactors.Charactor.Graph(
                 new asd.Color(255, 255, 255), new int[,] {
@@ -70,7 +70,7 @@ namespace mazai_700.Scene
                     { ' ', ' ', (int)C.Block, ' '},
                     { ' ', ' ', (int)C.Triangle4, ' '}
                 });
-            seven.Position = new asd.Vector2DF(9 * Consts.CharSize.X, 5 * Consts.CharSize.Y);
+            seven.Position = new asd.Vector2DF(9 * Consts.CharSize.X, 8 * Consts.CharSize.Y);
             title.AddGraph(seven);
 
             var zero = new Charactors.Charactor.Graph(
@@ -80,11 +80,11 @@ namespace mazai_700.Scene
                     { (int)C.Block, ' ', (int)C.Block},
                     { (int)C.Block, (int)C.Block, (int)C.Block}
                 });
-            zero.Position = new asd.Vector2DF(13 * Consts.CharSize.X, 5 * Consts.CharSize.Y);
+            zero.Position = new asd.Vector2DF(13 * Consts.CharSize.X, 8 * Consts.CharSize.Y);
             title.AddGraph(zero);
 
             var zero_ = new Charactors.Charactor.Graph(zero);
-            zero_.Position = new asd.Vector2DF(17 * Consts.CharSize.X, 5 * Consts.CharSize.Y);
+            zero_.Position = new asd.Vector2DF(17 * Consts.CharSize.X, 8 * Consts.CharSize.Y);
             title.AddGraph(zero_);
 
             layer.AddObject(title);

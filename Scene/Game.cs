@@ -25,7 +25,7 @@ namespace mazai_700.Scene
 
         protected override void OnUpdated()
         {
-            if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Z) == asd.KeyState.Push)
+            if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Z) == asd.KeyState.Hold)
             {
                 var shot1 = new Charactors.Shot(player.Position + new asd.Vector2DF(24, 0));
                 var shot2 = new Charactors.Shot(player.Position + new asd.Vector2DF(-24, 0));

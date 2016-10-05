@@ -41,11 +41,18 @@ namespace mazai_700.Charactors.Enemy
             {
                 for (int x = 0; x < enemyData.Width; x++)
                 {
-                    if (enemyData.GetPixel(x, counter / 32).R == 255)
+                    var r = enemyData.GetPixel(x, counter / 32).R;
+                    if (r == 255)
                     {
                         Add(new RedBird(new asd.Vector2DF(
                             Consts.Window.Width * x / enemyData.Width,
                             0), bulletCompany));
+                    }
+                    else if (r == 200)
+                    {
+                        Add(new Mosquit(
+                            new asd.Vector2DF(Consts.Window.Width * x / enemyData.Width, 0),
+                            bulletCompany, player));
                     }
                 }
             }

@@ -12,8 +12,8 @@ namespace mazai_700.Charactors.Enemy
             base(pos, bulletCompany)
         {
             this.player = player;
-            AddGraph(new Graph(new asd.Color(100, 50, 0),
-                "'+'",
+            AddGraph(new Graph(new asd.Color(200, 100, 0),
+                "[+]",
                 " |"));
             base.OnUpdate();
         }

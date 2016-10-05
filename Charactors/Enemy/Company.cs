@@ -18,7 +18,7 @@ namespace mazai_700.Charactors.Enemy
         public Company(
             asd.Layer2D layer,
             List<Bullet.Bullet> bulletCompany,
-            List<Shot> shotCompany,
+            Charactors.Shot.Company shotCompany,
             Player player)
         {
             this.layer = layer;
@@ -31,7 +31,7 @@ namespace mazai_700.Charactors.Enemy
 
         public void Add(Enemy enemy)
         {
-            enemies.Add(enemy);
+            Enemies.Add(enemy);
             layer.AddObject(enemy);
         }
 
@@ -58,29 +58,13 @@ namespace mazai_700.Charactors.Enemy
             }
             counter++;
 
-            foreach (var shot in shotCompany)
-            {
-                foreach (var enemy in enemies)
-                {
-                    if (enemy == null || shot == null)
-                        continue;
-                    if ((shot.Position - enemy.Position).Length < 32)
-                    {
-                        enemy.Hp--;
-                        shot.Dispose();
-                    }
-                    if (enemy.Hp <= 0)
-                        enemy.Dispose();
-                }
-            }
-            enemies.RemoveAll(e => !e.IsAlive);
-            shotCompany.RemoveAll(s => !s.IsAlive);
+            Enemies.RemoveAll(e => !e.IsAlive);
         }
+        public List<Enemy> Enemies { get; set; } = new List<Enemy>();
 
         private asd.Layer2D layer;
         private List<Bullet.Bullet> bulletCompany;
-        private List<Shot> shotCompany;
-        private List<Enemy> enemies { get; set; } = new List<Enemy>();
+        private Charactors.Shot.Company shotCompany;
         private Player player;
         private System.Drawing.Bitmap enemyData;
         int counter = 0;

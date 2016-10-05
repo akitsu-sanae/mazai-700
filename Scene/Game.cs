@@ -17,6 +17,7 @@ namespace mazai_700.Scene
     {
         public Game()
         {
+            shotCompany = new Charactors.Shot.Company(gameLayer, player);
             enemyCompany = new Charactors.Enemy.Company(gameLayer, bulletCompany, shotCompany, player);
 
             gameLayer.AddObject(player);
@@ -25,22 +26,34 @@ namespace mazai_700.Scene
 
         protected override void OnUpdated()
         {
-            if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Z) == asd.KeyState.Hold)
-            {
-                var shot1 = new Charactors.Shot(player.Position + new asd.Vector2DF(24, 0));
-                var shot2 = new Charactors.Shot(player.Position + new asd.Vector2DF(-24, 0));
-                gameLayer.AddObject(shot1);
-                gameLayer.AddObject(shot2);
-                shotCompany.Add(shot1);
-                shotCompany.Add(shot2);
-            }
+            shotCompany.Update();
             enemyCompany.Update();
+            CollisionShotsAndEnemies();
+        }
+
+        private void CollisionShotsAndEnemies()
+        {
+            foreach (var shot in shotCompany.Shots)
+            {
+                foreach (var enemy in enemyCompany.Enemies)
+                {
+                    if (enemy == null || shot == null)
+                        continue;
+                    if ((shot.Position - enemy.Position).Length < 32)
+                    {
+                        enemy.Hp--;
+                        shot.Dispose();
+                    }
+                    if (enemy.Hp <= 0)
+                        enemy.Dispose();
+                }
+            }
         }
 
         asd.Layer2D gameLayer = new asd.Layer2D();
         Charactors.Player player = new Charactors.Player();
         Charactors.Enemy.Company enemyCompany;
-        List<Charactors.Shot> shotCompany = new List<Charactors.Shot>();
+        Charactors.Shot.Company shotCompany;
         List<Charactors.Bullet.Bullet> bulletCompany = new List<Charactors.Bullet.Bullet>();
 
     }

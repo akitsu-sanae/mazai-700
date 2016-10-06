@@ -54,6 +54,7 @@
     <Compile Include="Charactors\Bullet\Bullet.cs" />
     <Compile Include="Charactors\Bullet\Company.cs" />
     <Compile Include="Charactors\Charactor.cs" />
+    <Compile Include="Charactors\Enemy\Baasi.cs" />
     <Compile Include="Charactors\Enemy\Company.cs" />
     <Compile Include="Charactors\Enemy\Enemy.cs" />
     <Compile Include="Charactors\Enemy\Mosquit.cs" />

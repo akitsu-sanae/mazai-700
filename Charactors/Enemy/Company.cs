@@ -54,6 +54,12 @@ namespace mazai_700.Charactors.Enemy
                             new asd.Vector2DF(Consts.Window.Width * x / enemyData.Width, 0),
                             bulletCompany, player));
                     }
+                    else if (r == 150)
+                    {
+                        Add(new Baasi(
+                            new asd.Vector2DF(Consts.Window.Width / 2, 0),
+                            bulletCompany, player));
+                    }
                 }
             }
             counter++;

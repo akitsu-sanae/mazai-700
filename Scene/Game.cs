@@ -29,6 +29,12 @@ namespace mazai_700.Scene
             shotCompany.Update();
             enemyCompany.Update();
             CollisionShotsAndEnemies();
+            CollisionBulletAndPlayer();
+
+            bulletCompany.RemoveAll(bullet => !bullet.IsAlive);
+
+            if (player.Hp < 0)
+                asd.Engine.ChangeScene(new Scene.Title());
         }
 
         private void CollisionShotsAndEnemies()
@@ -46,6 +52,18 @@ namespace mazai_700.Scene
                     }
                     if (enemy.Hp <= 0)
                         enemy.Dispose();
+                }
+            }
+        }
+
+        private void CollisionBulletAndPlayer()
+        {
+            foreach (var bullet in bulletCompany)
+            {
+                if ((player.Position - bullet.Position).Length < 32)
+                {
+                    player.Hp--;
+                    bullet.Dispose();
                 }
             }
         }

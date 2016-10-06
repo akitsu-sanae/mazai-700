@@ -50,5 +50,7 @@ namespace mazai_700.Charactors
             Position = pos;
             base.OnUpdate();
         }
+
+        public int Hp { get; set; } = 3;
     }
 }

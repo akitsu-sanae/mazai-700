@@ -15,7 +15,7 @@ namespace mazai_700.Charactors.Enemy
 {
     class RedBird : Enemy
     {
-        public RedBird(asd.Vector2DF pos, List<Bullet.Bullet> bulletCompany) :
+        public RedBird(asd.Vector2DF pos, Bullet.Company bulletCompany) :
             base(pos, bulletCompany)
         {
             AddGraph(new Graph(new asd.Color(255, 0, 0),

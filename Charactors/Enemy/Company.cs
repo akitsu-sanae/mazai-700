@@ -17,7 +17,7 @@ namespace mazai_700.Charactors.Enemy
     {
         public Company(
             asd.Layer2D layer,
-            List<Bullet.Bullet> bulletCompany,
+            Charactors.Bullet.Company bulletCompany,
             Charactors.Shot.Company shotCompany,
             Player player)
         {
@@ -63,7 +63,7 @@ namespace mazai_700.Charactors.Enemy
         public List<Enemy> Enemies { get; set; } = new List<Enemy>();
 
         private asd.Layer2D layer;
-        private List<Bullet.Bullet> bulletCompany;
+        private Charactors.Bullet.Company bulletCompany;
         private Charactors.Shot.Company shotCompany;
         private Player player;
         private System.Drawing.Bitmap enemyData;

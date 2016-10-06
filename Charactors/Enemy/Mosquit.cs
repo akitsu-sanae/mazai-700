@@ -8,7 +8,7 @@ namespace mazai_700.Charactors.Enemy
 {
     class Mosquit : Enemy
     {
-        public Mosquit(asd.Vector2DF pos, List<Bullet.Bullet> bulletCompany, Player player) :
+        public Mosquit(asd.Vector2DF pos, Bullet.Company bulletCompany, Player player) :
             base(pos, bulletCompany)
         {
             this.player = player;

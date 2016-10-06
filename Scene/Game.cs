@@ -17,6 +17,7 @@ namespace mazai_700.Scene
     {
         public Game()
         {
+            bulletCompany = new Charactors.Bullet.Company(gameLayer);
             shotCompany = new Charactors.Shot.Company(gameLayer, player);
             enemyCompany = new Charactors.Enemy.Company(gameLayer, bulletCompany, shotCompany, player);
 
@@ -28,10 +29,9 @@ namespace mazai_700.Scene
         {
             shotCompany.Update();
             enemyCompany.Update();
+            bulletCompany.Update();
             CollisionShotsAndEnemies();
             CollisionBulletAndPlayer();
-
-            bulletCompany.RemoveAll(bullet => !bullet.IsAlive);
 
             if (player.Hp < 0)
                 asd.Engine.ChangeScene(new Scene.Title());
@@ -58,8 +58,10 @@ namespace mazai_700.Scene
 
         private void CollisionBulletAndPlayer()
         {
-            foreach (var bullet in bulletCompany)
+            foreach (var bullet in bulletCompany.Bullets)
             {
+                if (!bullet.IsAlive)
+                    continue;
                 if ((player.Position - bullet.Position).Length < 32)
                 {
                     player.Hp--;
@@ -72,7 +74,6 @@ namespace mazai_700.Scene
         Charactors.Player player = new Charactors.Player();
         Charactors.Enemy.Company enemyCompany;
         Charactors.Shot.Company shotCompany;
-        List<Charactors.Bullet.Bullet> bulletCompany = new List<Charactors.Bullet.Bullet>();
-
+        Charactors.Bullet.Company bulletCompany;
     }
 }

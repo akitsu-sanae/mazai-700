@@ -15,7 +15,7 @@ namespace mazai_700.Charactors.Enemy
 {
     class Enemy : Charactor
     {
-        public Enemy(asd.Vector2DF pos, List<Bullet.Bullet> bulletCompany)
+        public Enemy(asd.Vector2DF pos, Bullet.Company bulletCompany)
         {
             Position = pos;
             this.bulletCompany = bulletCompany;
@@ -33,6 +33,6 @@ namespace mazai_700.Charactors.Enemy
         }
 
         public virtual int Hp { get; set; } = 4;
-        protected List<Bullet.Bullet> bulletCompany;
+        protected Bullet.Company bulletCompany;
     }
 }

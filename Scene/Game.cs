@@ -23,6 +23,9 @@ namespace mazai_700.Scene
 
             gameLayer.AddObject(player);
             AddLayer(gameLayer);
+
+            stausLayer.AddObject(hp);
+            AddLayer(stausLayer);
         }
 
         protected override void OnUpdated()
@@ -35,6 +38,10 @@ namespace mazai_700.Scene
 
             if (player.Hp < 0)
                 asd.Engine.ChangeScene(new Scene.Title());
+
+            hp.Clear();
+            hp.AddGraph(new Charactors.Charactor.Graph(
+                new asd.Color(255, 255, 255), player.Hp.ToString()));
         }
 
         private void CollisionShotsAndEnemies()
@@ -71,6 +78,8 @@ namespace mazai_700.Scene
         }
 
         asd.Layer2D gameLayer = new asd.Layer2D();
+        asd.Layer2D stausLayer = new asd.Layer2D();
+        Charactors.Charactor hp = new Charactors.Charactor();
         Charactors.Player player = new Charactors.Player();
         Charactors.Enemy.Company enemyCompany;
         Charactors.Shot.Company shotCompany;

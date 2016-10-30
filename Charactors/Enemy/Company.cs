@@ -56,6 +56,12 @@ namespace mazai_700.Charactors.Enemy
                     }
                     else if (r == 150)
                     {
+                        Add(new Gunship(
+    new asd.Vector2DF(Consts.Window.Width * x / enemyData.Width, 0),
+    bulletCompany));
+                    }
+                    else if (r == 100)
+                    {
                         Add(new Baasi(
                             new asd.Vector2DF(Consts.Window.Width / 2, 0),
                             bulletCompany, player));
